@@ -42,34 +42,55 @@ export const typeDefs = gql`
 
 	enum BU {
 		ATL
-		AVS
+		ATS
 		STL
 	}
 
 	type ProjectType {
 		id: ID!
-		name: String
+		name: PT
+	}
+
+	enum PT {
+		ReactJava
+		Drupal
+		GoLang
 	}
 
 	input ProjectTypeInput {
-		name: String!
+		id: String
+		name: PT!
 	}
 
 	type ProjectStatus {
 		id: ID!
-		name: String
+		name: PS
+	}
+	enum PS {
+		Verbal
+		Proposed
+		Sold
+		Archived
 	}
 
 	input ProjectStatusInput {
-		name: String!
+		id: String
+		name: PS!
 	}
 
 	type Client {
 		id: ID!
-		name: String
+		name: CL
+	}
+
+	enum CL {
+		BCBSRI
+		EXPRESS_SCRIPTS
+		MASTER_CARD
 	}
 
 	input ClientInput {
-		name: String!
+		id: String
+		name: CL!
 	}
 `

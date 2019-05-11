@@ -71,18 +71,36 @@ export default {
 	}),
 	Mutation: {
 		addConsultant: async (_, { consultant }, context, info) => {
-			console.log(consultant)
 			return await context.dataSources.consultant.addConsultant(consultant)
+		},
+		addProject: (_, { project }, context, info) => {
+			return context.dataSources.project.addProject(project)
 		},
 	},
 	BU: {
 		ATL: 'ATL',
-		AVS: 'AVS',
+		ATS: 'ATS',
 		STL: 'STL',
 	},
 	T: {
 		ATC: 'Associate Technical Consultant',
 		TC: 'Technical Consultant',
 		LTC: 'Lead Technical Consultant',
+	},
+	PS: {
+		Verbal: 'Verbal',
+		Proposed: 'Proposed',
+		Sold: 'Sold',
+		Archived: 'Archived',
+	},
+	CL: {
+		BCBSRI: 'BCBSRI',
+		EXPRESS_SCRIPTS: 'EXPRESS_SCRIPTS',
+		MASTER_CARD: 'MASTER_CARD',
+	},
+	PT: {
+		ReactJava: 'ReactJava',
+		Drupal: 'Drupal',
+		GoLang: 'GoLang',
 	},
 }
