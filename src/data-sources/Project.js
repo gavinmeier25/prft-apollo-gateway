@@ -55,7 +55,7 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getProjectById...'))
 		try {
 			const res = await this.get(`/projects/${id}`)
-			return res
+			return this.projectReducer(res)
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/projects/${id}`))
 			throw new Error(err)
@@ -74,7 +74,9 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getBusinessUnits...'))
 		try {
 			const res = await this.get('/business-units')
-			return res
+			return res.map(bu => {
+				return this.businessUnitReducer(bu)
+			})
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/business-units`))
 			throw new Error(err)
@@ -85,7 +87,7 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getBusinessUnitById...'))
 		try {
 			const res = await this.get(`/business-units/${id}`)
-			return res
+			return this.businessUnitReducer(res)
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/business-units/${id}`))
 			throw new Error(err)
@@ -104,7 +106,9 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getProjectStatuses...'))
 		try {
 			const res = await this.get('/project-status')
-			return res
+			return res.map(status => {
+				return this.projectReducer(status)
+			})
 		} catch (err) {
 			console.log(`${err} - ${this.baseURL}/project-status`)
 			throw new Error(err)
@@ -115,7 +119,7 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getProjectStatusById...'))
 		try {
 			const res = await this.get(`/project-status/${id}`)
-			return res
+			return this.projectReducer(res)
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/project-status/${id}`))
 			throw new Error(err)
@@ -133,7 +137,9 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getProjectTypes...'))
 		try {
 			const res = await this.get('/project-type')
-			return res
+			return res.map(type => {
+				return this.projectTypeReducer(type)
+			})
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/project-type`))
 			throw new Error(err)
@@ -144,7 +150,7 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getProjectTypeById...'))
 		try {
 			const res = await this.get(`/project-type/${id}`)
-			return res
+			return this.projectTypeReducer(res)
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/project-type/${id}`))
 			throw new Error(err)
@@ -163,7 +169,9 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getClients...'))
 		try {
 			const res = await this.get('/clients')
-			return res
+			return res.map(client => {
+				return this.clientReducer(client)
+			})
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/clients`))
 			throw new Error(err)
@@ -174,7 +182,7 @@ class Project extends RESTDataSource {
 		console.log(chalk.green.italic('getClientById...'))
 		try {
 			const res = await this.get(`/clients/${id}`)
-			return res
+			return this.clientReducer(res)
 		} catch (err) {
 			console.log(chalk.red(`${err} - ${this.baseURL}/clients/${id}`))
 		}
