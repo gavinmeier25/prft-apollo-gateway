@@ -21,4 +21,24 @@ export const typeDefs = gql`
 		id: ID!
 		name: String ## neeeds mapping for roleStatus
 	}
+
+    input RoleInput {
+		id: String
+		businessUnitId: String
+		projectId: String
+		sowTitle: String
+		startDate: String
+		endDate: String
+		roleStatus: RoleStatusInput
+		resourceId: String
+		resourceStartDate: String
+		totalHours: Float
+		pctDedicate: Float ## % of time on project
+		rate: Float ## double
+	}
+
+	input RoleStatusInput {
+		id: ID
+		name: String ## neeeds mapping for roleStatus
+	}
 `
