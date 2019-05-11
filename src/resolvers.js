@@ -75,4 +75,14 @@ export default {
 			return await context.dataSources.consultant.addConsultant(consultant)
 		},
 	},
+	BU: {
+		ATL: 'ATL',
+		AVS: 'AVS',
+		STL: 'STL',
+	},
+	T: {
+		ATC: 'Associate Technical Consultant',
+		TC: 'Technical Consultant',
+		LTC: 'Lead Technical Consultant',
+	},
 }

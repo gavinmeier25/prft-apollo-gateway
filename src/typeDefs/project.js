@@ -16,13 +16,34 @@ export const typeDefs = gql`
 		businessUnit: BusinessUnit ## resolver needed
 	}
 
+	input ProjectInput {
+		name: String! ## project name
+		accountDeveloper: String! ## sales rep
+		startDate: Date
+		endDate: Date
+		engagementDirector: String!
+		travel: Boolean
+		comments: String
+		projectStatus: ProjectStatusInput ## resolver needed
+		projectType: ProjectTypeInput ## ENUM
+		client: ClientInput ## resolver needed
+		businessUnit: BusinessUnitInput ## resolver needed
+	}
+
 	type BusinessUnit {
 		id: ID!
-		name: String
+		name: BU
 	}
+
 	input BusinessUnitInput {
 		id: String
-		name: String!
+		name: BU!
+	}
+
+	enum BU {
+		ATL
+		AVS
+		STL
 	}
 
 	type ProjectType {
@@ -30,13 +51,25 @@ export const typeDefs = gql`
 		name: String
 	}
 
+	input ProjectTypeInput {
+		name: String!
+	}
+
 	type ProjectStatus {
 		id: ID!
 		name: String
 	}
 
+	input ProjectStatusInput {
+		name: String!
+	}
+
 	type Client {
 		id: ID!
 		name: String
+	}
+
+	input ClientInput {
+		name: String!
 	}
 `

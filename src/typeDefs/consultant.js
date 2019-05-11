@@ -16,7 +16,12 @@ export const typeDefs = gql`
 
 	type Title {
 		id: ID!
-		name: String
+		name: T
+	}
+	enum T {
+		ATC
+		TC
+		LTC
 	}
 
 	input TitleInput {

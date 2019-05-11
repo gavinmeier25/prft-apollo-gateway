@@ -61,6 +61,18 @@ class Project extends RESTDataSource {
 		}
 	}
 
+	async addProject(project) {
+		console.log(chalk.green.italic('addProject...'))
+		try {
+			const reqBody = this.projectReducer(project)
+			const res = await this.post('/projects', reqBody)
+			return this.projectReducer(res)
+		} catch (err) {
+			console.log(chalk.red(`${err} - ${this.baseURL}/projects`))
+			throw new Error(err)
+		}
+	}
+
 	businessUnitReducer({ id, name }) {
 		return {
 			id,
