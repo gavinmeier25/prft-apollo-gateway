@@ -3,13 +3,13 @@ import { gql } from 'apollo-server'
 export const typeDefs = gql`
 	type Role {
 		id: ID!
-		businessUnitId: ID!
-		projectId: ID!
+		businessUnitId: ID
+		projectId: ID
 		sowTitle: String
 		startDate: Date
 		endDate: Date
 		roleStatus: RoleStatus
-		resourceId: ID!
+		resourceId: ID
 		resourceStartDate: Date
 		totalHours: Float
 		pctDedicate: Float ## % of time on project
