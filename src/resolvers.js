@@ -4,6 +4,7 @@ export default {
             await context.dataSources.consultant.getBusinessUnits()
             return 'hello world'
         },
+<<<<<<< HEAD
         projects: async (_, args, context, info) => {
             return await context.dataSources.project.getProjects()
         },
@@ -40,6 +41,21 @@ export default {
         roleStatusById: async (_, { id }, context, info) => {
             return await context.dataSources.role.getRoleStatusById(id)
         }
+=======
+        consultants: async (_, {page, size}, context, info) => {
+            return await context.dataSources.consultant.getConsultants(page, size)
+        },
+        consultant: async (_, {id}, context, info) => {
+            return await context.dataSources.consultant.getConsultantById(id)
+        },
+        titles: async (_, args, context, info ) => {
+            return await context.dataSources.consultant.getTitles()
+            
+        },
+        title: async (_, {id}, context, info ) => {
+            return await context.dataSources.consultant.getTitleById(id)
+        },
+>>>>>>> dc6105d2ef151681d9d1b5e36e12aa670bbff107
     },
     // Mutation: {
 
