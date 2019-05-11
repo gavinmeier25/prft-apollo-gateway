@@ -18,6 +18,7 @@ export const typeDefs = gql`
 		id: ID!
 		name: T
 	}
+
 	enum T {
 		ATC
 		TC
@@ -26,7 +27,7 @@ export const typeDefs = gql`
 
 	input TitleInput {
 		id: String
-		name: String
+		name: T
 	}
 
 	input ConsultantInput {
