@@ -75,9 +75,10 @@ class Consultant extends RESTDataSource {
 		}
 	}
 
-	async addConsultant(consultant) {
+	async addConsultant(value) {
 		console.log(chalk.blue.italic('addConsultant...'))
 		try {
+			const consultant = this.consultantReducer(value)
 			const res = await this.post('/consultants', consultant)
 			return this.consultantReducer(res)
 		} catch (err) {

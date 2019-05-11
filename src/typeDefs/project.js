@@ -20,6 +20,10 @@ export const typeDefs = gql`
 		id: ID!
 		name: String
 	}
+	input BusinessUnitInput {
+		id: String
+		name: String!
+	}
 
 	type ProjectType {
 		id: ID!

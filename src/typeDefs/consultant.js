@@ -18,4 +18,22 @@ export const typeDefs = gql`
 		id: ID!
 		name: String
 	}
+
+	input TitleInput {
+		id: String
+		name: String
+	}
+
+	input ConsultantInput {
+		id: String
+		name: String!
+		email: String!
+		hourlyRate: Float!
+		manager: String!
+		relocate: Boolean!
+		dob: Date!
+		ssn: Int!
+		businessUnit: BusinessUnitInput!
+		title: TitleInput!
+	}
 `

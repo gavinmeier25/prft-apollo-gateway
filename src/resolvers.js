@@ -1,3 +1,6 @@
+import { GraphQLScalarType } from 'graphql'
+import { Kind } from 'graphql/language'
+
 export default {
 	Query: {
 		consultants: async (_, { page, size }, context, info) => {
@@ -6,6 +9,7 @@ export default {
 		consultant: async (_, { id }, context, info) => {
 			return await context.dataSources.consultant.getConsultantById(id)
 		},
+
 		titles: async (_, args, context, info) => {
 			return await context.dataSources.consultant.getTitles()
 		},
@@ -47,6 +51,28 @@ export default {
 		},
 		roleStatus: async (_, { id }, context, info) => {
 			return await context.dataSources.role.getRoleStatusById(id)
+		},
+	},
+	Date: new GraphQLScalarType({
+		name: 'Date',
+		description: 'Date custom scalar type',
+		parseValue(value) {
+			return new Date(value)
+		},
+		serialize(value) {
+			return 'value.getTime()'
+		},
+		parseLiteral(ast) {
+			if (ast.kind === Kind.Int) {
+				return parseInt(ast.value, 10)
+			}
+			return null
+		},
+	}),
+	Mutation: {
+		addConsultant: async (_, { consultant }, context, info) => {
+			console.log(consultant)
+			return await context.dataSources.consultant.addConsultant(consultant)
 		},
 	},
 }
