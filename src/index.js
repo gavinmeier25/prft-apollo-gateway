@@ -9,22 +9,24 @@ import resolvers from './resolvers'
 import Consultant from './data-sources/Consultant'
 
 const server = new ApolloServer({
-    typeDefs: [consultant, query, project, role, shared],
-    resolvers,
-    dataSources: () => ({
-        consultant: new Consultant()
-    }),
-    context: async (req, res) => {
-        return {
-            req, res
-        }
-    },
-    tracing: true,
-    cacheControl: true,
-    cors: true,
-    // mocks: true
+	typeDefs: [consultant, query, project, role, shared],
+	resolvers,
+	dataSources: () => ({
+		consultant: new Consultant(),
+	}),
+	context: async (req, res) => {
+		return {
+			req,
+			res,
+		}
+	},
+	tracing: true,
+	cacheControl: true,
+	cors: true,
+	cache: false,
+	// mocks: true
 })
 
 server.listen().then(({ url }) => {
-    console.log(chalk.blueBright.bold(`Server is running at ${url}`))
+	console.log(chalk.blueBright.bold(`Server is running at ${url}`))
 })

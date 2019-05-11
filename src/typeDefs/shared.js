@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server'
 
 export const typeDefs = gql`
-    scalar Date
+	scalar Date
 `
