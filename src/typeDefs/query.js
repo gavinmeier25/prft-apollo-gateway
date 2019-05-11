@@ -1,24 +1,25 @@
 import { gql } from 'apollo-server'
 
 export const typeDefs = gql`
-		hello: Consultant
-		# businessUnits: [BusinessUnits]
+	# businessUnits: [BusinessUnits]
+	type Query {
 		titles: [Title]
 		title(id: String!): Title
 		consultants(page: Int, size: Int): [Consultant]
 		consultant(id: String!): Consultant
-        projects: [Project]
-        projectById: Project
-        projectStatuses: [ProjectStatus]
-        projectStatusById: ProjectStatus
-        projectTypes: [ProjectType]
-        projectTypeById: ProjectType
-        clients: [Client]
-        clientById: Client
-        businessUnits: [BusinessUnit]
-        businessUnitById: BusinessUnit
-        roles: [Role]
-        roleById: Role
-        roleStatuses: [RoleStatus]
-        roleStatusById: RoleStatus
+		projects: [Project]
+		project(id: String!): Project
+		projectStatuses: [ProjectStatus]
+		projectStatus(id: String!): ProjectStatus
+		projectTypes: [ProjectType]
+		projectType(id: String!): ProjectType
+		clients: [Client]
+		client(id: String): Client
+		businessUnits: [BusinessUnit]
+		businessUnit(id: String): BusinessUnit
+		roles: [Role]
+		role(id: String!): Role
+		roleStatuses: [RoleStatus]
+		roleStatus(id: String): RoleStatus
+	}
 `
