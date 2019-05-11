@@ -4,8 +4,21 @@
   "description": "Apollo service gateway for Perficient University ",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --delay 80ms --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gavin && Lucas",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "apollo-datasource-rest": "^0.4.0",
+    "apollo-server": "^2.5.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "chalk": "^2.4.2",
+    "graphql": "^14.3.0",
+    "nodemon": "^1.19.0"
+  }
 }
