@@ -23,7 +23,6 @@ class Role extends RESTDataSource {
 		consultants,
 		sowTitle,
 	}) {
-		console.log(chalk.yellow('rolesReducer...'))
 		return {
 			id,
 			businessUnitId,
@@ -67,7 +66,6 @@ class Role extends RESTDataSource {
 	}
 
 	roleStatusReducer({ id, roleStatus }) {
-		console.log(chalk.whiteBright('roleStatusReducer'))
 		return {
 			id,
 			name: roleStatus,

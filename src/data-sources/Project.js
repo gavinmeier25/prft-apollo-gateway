@@ -21,7 +21,6 @@ class Project extends RESTDataSource {
 		client,
 		businessUnit,
 	}) {
-		console.log(chalk.yellow.italic('projectReducer...'))
 		return {
 			id,
 			name,
@@ -63,7 +62,6 @@ class Project extends RESTDataSource {
 	}
 
 	businessUnitReducer({ id, name }) {
-		console.log(chalk.hex('#7fa1c4').italic('businessUnitReducer...'))
 		return {
 			id,
 			name,
@@ -95,7 +93,6 @@ class Project extends RESTDataSource {
 	}
 
 	projectStatusReducer({ id, name }) {
-		console.log(chalk.whiteBright.italic('projectStatusReducer...'))
 		return {
 			id,
 			name,
@@ -127,7 +124,6 @@ class Project extends RESTDataSource {
 	}
 
 	projectTypeReducer({ id, name }) {
-		console.log(chalk.hex('#a9b5c9').italic('projectTypeReducer...'))
 		return {
 			id,
 			name,

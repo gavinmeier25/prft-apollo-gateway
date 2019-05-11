@@ -20,7 +20,6 @@ class Consultant extends RESTDataSource {
 		title,
 		page,
 	}) {
-		console.log(chalk.yellow.italic('consultantReducer...'))
 		return {
 			id,
 			name,
@@ -37,7 +36,6 @@ class Consultant extends RESTDataSource {
 	}
 
 	pageReducer({ totalPages, last, totalElements, size }) {
-		console.log(chalk.yellow.italic('pageReducer...'))
 		return {
 			totalPages,
 			last,
@@ -89,7 +87,6 @@ class Consultant extends RESTDataSource {
 	}
 
 	businessUnitReducer({ id, name }) {
-		console.log(chalk.whiteBright.italic('businessUnitReducer...'))
 		return {
 			id,
 			name,
