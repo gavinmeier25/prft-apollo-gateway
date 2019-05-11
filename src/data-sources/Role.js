@@ -29,7 +29,7 @@ class Role extends RESTDataSource {
 			projectId,
 			startDate,
 			endDate,
-			roleStatus: this.roleStatusReducer(roleStatus),
+			roleStatus: roleStatus ? this.roleStatusReducer(roleStatus) : null,
 			resourceId,
 			resourceStartDate,
 			totalHours,
@@ -106,7 +106,10 @@ class Role extends RESTDataSource {
 
     async updateRole (value) {
         console.log(chalk.green.italic(`updateRole(${value.id})`))
-        return await this.put('/roles', this.roleReducer(value))
+        const oldRole = await this.get(`/roles/${value.id}`)
+        const newRole = { ...oldRole, ...value }
+        const updatedRole = this.roleReducer(newRole);
+        return await this.put('/roles', updatedRole)
             .catch(err => {
                 console.log(chalk.red(`${err.message} - ${this.baseURL}/roles PUT with id ${value.id}`))
                 throw new Error(err)
