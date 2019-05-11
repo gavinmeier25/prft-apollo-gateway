@@ -1,6 +1,7 @@
 export default {
     Query: {
-        hello: (_, args, context, info) => {
+        hello: async (_, args, context, info) => {
+            await context.dataSources.consultant.getBusinessUnits()
             return 'hello world'
         }
     },
