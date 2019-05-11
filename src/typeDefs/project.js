@@ -17,11 +17,12 @@ export const typeDefs = gql`
 	}
 
 	input ProjectInput {
-		name: String! ## project name
-		accountDeveloper: String! ## sales rep
+		id: String
+		name: String ## project name
+		accountDeveloper: String ## sales rep
 		startDate: Date
 		endDate: Date
-		engagementDirector: String!
+		engagementDirector: String
 		travel: Boolean
 		comments: String
 		projectStatus: ProjectStatusInput ## resolver needed

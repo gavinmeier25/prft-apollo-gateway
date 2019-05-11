@@ -76,15 +76,18 @@ export default {
 		addProject: (_, { project }, context, info) => {
 			return context.dataSources.project.addProject(project)
 		},
-        addRole: (_, { role }, context, info) => {
-            return context.dataSources.role.addNewRole(role)
-        },
-        updateRole: (_, { role }, context, info) => {
-            return context.dataSources.role.updateRole(role)
-        },
-        deleteRole: (_, { id }, context, info) => {
-            return context.dataSources.role.deleteRole(id)
-        }
+		updateProject: (_, { project }, context, info) => {
+			return context.dataSources.project.updateProject(project)
+		},
+		addRole: (_, { role }, context, info) => {
+			return context.dataSources.role.addNewRole(role)
+		},
+		updateRole: (_, { role }, context, info) => {
+			return context.dataSources.role.updateRole(role)
+		},
+		deleteRole: (_, { id }, context, info) => {
+			return context.dataSources.role.deleteRole(id)
+		},
 	},
 	BU: {
 		ATL: 'ATL',
