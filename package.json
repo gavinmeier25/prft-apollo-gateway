@@ -1,0 +1,11 @@
+{
+  "name": "prft-apollo-gateway",
+  "version": "1.0.0",
+  "description": "Apollo service gateway for Perficient University ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gavin && Lucas",
+  "license": "UNLICENSED"
+}
