@@ -1,10 +1,14 @@
 import { ApolloServer } from 'apollo-server'
 import chalk from 'chalk'
-import { typeDefs } from './typeDefs'
+import { typeDefs as consultant } from './typeDefs/consultant'
+import { typeDefs as query } from './typeDefs/query'
+import { typeDefs as project } from './typeDefs/project'
+import { typeDefs as role } from './typeDefs/role'
+import { typeDefs as shared } from './typeDefs/shared'
 import resolvers from './resolvers'
 
 const server = new ApolloServer({
-    typeDefs,
+    typeDefs: [consultant, query, project, role, shared],
     resolvers,
     dataSources: () => ({
 
@@ -16,7 +20,8 @@ const server = new ApolloServer({
     },
     tracing: true,
     cacheControl: true,
-    cors: true
+    cors: true,
+    mocks: true
 })
 
 server.listen().then(({ url }) => {
