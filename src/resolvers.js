@@ -16,8 +16,8 @@ export default {
 		title: async (_, { id }, context, info) => {
 			return await context.dataSources.consultant.getTitleById(id)
 		},
-		projects: async (_, args, context, info) => {
-			return await context.dataSources.project.getProjects()
+		projects: (_, args, context, info) => {
+			return context.dataSources.project.getProjects()
 		},
 		project: async (_, { id }, context, info) => {
 			return await context.dataSources.project.getProjectById(id)
@@ -44,7 +44,7 @@ export default {
 			return await context.dataSources.role.getRoles()
 		},
 		role: async (_, { id }, context, info) => {
-			return await context.dataSources.role, getRoleById(id)
+			return await context.dataSources.role.getRoleById(id)
 		},
 		roleStatuses: async (_, args, context, info) => {
 			return await context.dataSources.role.getRoleStatuses()
@@ -74,6 +74,15 @@ export default {
 			console.log(consultant)
 			return await context.dataSources.consultant.addConsultant(consultant)
 		},
+        addRole: (_, { role }, context, info) => {
+            return context.dataSources.role.addNewRole(role)
+        },
+        updateRole: (_, { role }, context, info) => {
+            return context.dataSources.role.updateRole(role)
+        },
+        deleteRole: (_, { id }, context, info) => {
+            return context.dataSources.role.deleteRole(id)
+        }
 	},
 	BU: {
 		ATL: 'ATL',

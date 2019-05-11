@@ -93,6 +93,34 @@ class Role extends RESTDataSource {
 			throw new Error(err)
 		}
 	}
+
+    async addNewRole (value) {
+        console.log(chalk.green.italic('addNewRole'))
+        const role = this.roleReducer(value)
+        return await this.post('/roles', role)
+            .catch(err => {
+                console.log(chalk.red(`${err.message} - ${this.baseURL}/roles POST with body ${role}`))
+                throw new Error(err)
+            })
+    }
+
+    async updateRole (value) {
+        console.log(chalk.green.italic(`updateRole(${value.id})`))
+        return await this.put('/roles', this.roleReducer(value))
+            .catch(err => {
+                console.log(chalk.red(`${err.message} - ${this.baseURL}/roles PUT with id ${value.id}`))
+                throw new Error(err)
+            })
+    }
+
+    async deleteRole (id) {
+        console.log(chalk.green.italic(`deleteRole(${id})`))
+        return await this.delete(`/roles/${id}`)
+            .catch(err => {
+                console.log(chalk.red(`${err.message} - ${this.baseURL}/roles/${id} DELETE}`))
+                throw new Error(err)
+            })
+    }
 }
 
 export default Role
