@@ -108,8 +108,8 @@ class Role extends RESTDataSource {
         console.log(chalk.green.italic(`updateRole(${value.id})`))
         const oldRole = await this.get(`/roles/${value.id}`)
         const newRole = { ...oldRole, ...value }
-        const updatedRole = this.roleReducer(newRole);
-        return await this.put('/roles', updatedRole)
+        const reqBody = this.roleReducer(newRole);
+        return await this.put('/roles', reqBody)
             .catch(err => {
                 console.log(chalk.red(`${err.message} - ${this.baseURL}/roles PUT with id ${value.id}`))
                 throw new Error(err)
